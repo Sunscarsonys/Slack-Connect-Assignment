@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="/Public/home.png" alt="Home Screen" width="800"/>
+</p>
+
 # Slack Connect
 
 Slack Connect is a full-stack web application that allows users to:
