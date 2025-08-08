@@ -48,10 +48,8 @@ export default function Connect() {
       if (!contentType || !contentType.includes("application/json")) {
         const responseText = await res.text();
         throw new Error(
-          `Server returned non-JSON response. Content-Type: ${
-            contentType || "none"
-          }, Response: ${responseText.substring(0, 200)}${
-            responseText.length > 200 ? "..." : ""
+          `Server returned non-JSON response. Content-Type: ${contentType || "none"
+          }, Response: ${responseText.substring(0, 200)}${responseText.length > 200 ? "..." : ""
           }`
         );
       }
@@ -101,54 +99,6 @@ export default function Connect() {
             </p>
           </div>
 
-          {/* Features Grid */}
-          <div className={Styles.featuresGrid}>
-            <div className={`${Styles.featureCard} ${Styles.hoverGlow}`}>
-              <div
-                className={`${Styles.featureIconBox} ${Styles.glassDark} group-hover:glow-cyan`}
-              >
-                <Zap
-                  className={`${Styles.featureIcon} ${Styles.cyanGlowText}`}
-                />
-              </div>
-              <h3 className={Styles.featureTitle}>Instant Messaging</h3>
-              <p className={Styles.featureText}>
-                Send messages to any channel or user with lightning speed
-                through our quantum-enhanced interface.
-              </p>
-            </div>
-
-            <div className={`${Styles.featureCard} ${Styles.hoverGlow}`}>
-              <div
-                className={`${Styles.featureIconBox} ${Styles.glassDark} group-hover:glow-purple`}
-              >
-                <Clock
-                  className={`${Styles.featureIcon} ${Styles.purpleGlowText}`}
-                />
-              </div>
-              <h3 className={Styles.featureTitle}>Temporal Scheduling</h3>
-              <p className={Styles.featureText}>
-                Schedule messages across time zones with precision timing.
-                Perfect for global team coordination.
-              </p>
-            </div>
-
-            <div className={`${Styles.featureCard} ${Styles.hoverGlow}`}>
-              <div
-                className={`${Styles.featureIconBox} ${Styles.glassDark} group-hover:glow-cyan`}
-              >
-                <MessageSquare
-                  className={`${Styles.featureIcon} ${Styles.cyanGlowText}`}
-                />
-              </div>
-              <h3 className={Styles.featureTitle}>Neural Management</h3>
-              <p className={Styles.featureText}>
-                Advanced message management with AI-powered insights and full
-                control over your communication flow.
-              </p>
-            </div>
-          </div>
-
           {/* CTA Section */}
           <div className={`${Styles.ctaSection} ${Styles.glass}`}>
             <div className={Styles.ctaGradientOverlay}></div>
@@ -185,21 +135,6 @@ export default function Connect() {
                   </>
                 )}
               </button>
-
-              <div className={Styles.ctaFooter}>
-                <div className={Styles.ctaFooterItem}>
-                  <div className={`${Styles.dot} ${Styles.cyanGlow}`}></div>
-                  Quantum Encrypted
-                </div>
-                <div className={Styles.ctaFooterItem}>
-                  <div className={`${Styles.dot} ${Styles.purpleGlow}`}></div>
-                  Zero Data Storage
-                </div>
-                <div className={Styles.ctaFooterItem}>
-                  <div className={`${Styles.dot} ${Styles.cyanGlow}`}></div>
-                  Instant Setup
-                </div>
-              </div>
             </div>
           </div>
         </div>

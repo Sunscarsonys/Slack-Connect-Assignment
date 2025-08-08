@@ -1,5 +1,5 @@
 {
-  "name": "slack-connect-backend",
+  "name": "slack-auto-pilot-backend",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -20,6 +20,8 @@
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express-session": "^1.18.2",
+    "@types/node": "^24.2.0",
+    "@types/node-schedule": "^2.1.8",
     "tsx": "^4.7.1",
     "typescript": "^5.4.1"
   }
