@@ -11,7 +11,6 @@ import Styles from "../styles/Connect.module.css";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
-// Floating particles component
 const FloatingParticles = () => {
   return (
     <div className={Styles.particles}>
@@ -48,8 +47,10 @@ export default function Connect() {
       if (!contentType || !contentType.includes("application/json")) {
         const responseText = await res.text();
         throw new Error(
-          `Server returned non-JSON response. Content-Type: ${contentType || "none"
-          }, Response: ${responseText.substring(0, 200)}${responseText.length > 200 ? "..." : ""
+          `Server returned non-JSON response. Content-Type: ${
+            contentType || "none"
+          }, Response: ${responseText.substring(0, 200)}${
+            responseText.length > 200 ? "..." : ""
           }`
         );
       }
@@ -65,13 +66,8 @@ export default function Connect() {
 
   return (
     <div className={Styles.pageContainer}>
-      {/* Animated background grid */}
       <div className={Styles.gridBg}></div>
-
-      {/* Floating particles */}
       <FloatingParticles />
-
-      {/* Gradient overlays */}
       <div
         className={`${Styles.purpleGlow} ${Styles.gradientOverlayTop}`}
       ></div>
@@ -81,7 +77,6 @@ export default function Connect() {
 
       <div className={Styles.contentContainer}>
         <div className={Styles.mainContent}>
-          {/* Header */}
           <div className={Styles.header}>
             <div
               className={`${Styles.iconContainer} ${Styles.pulseGlow} ${Styles.hoverScale}`}
@@ -99,7 +94,6 @@ export default function Connect() {
             </p>
           </div>
 
-          {/* CTA Section */}
           <div className={`${Styles.ctaSection} ${Styles.glass}`}>
             <div className={Styles.ctaGradientOverlay}></div>
             <div className={Styles.ctaContent}>
