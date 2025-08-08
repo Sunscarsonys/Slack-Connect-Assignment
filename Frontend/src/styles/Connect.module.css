@@ -1,0 +1,436 @@
+:root {
+  --dark-bg: #0a0e18;
+  --purple-glow: #8a2be2;
+  --cyan-glow: #00ffff;
+  --gray-300: #d1d5db;
+  --white: #ffffff;
+}
+
+/* Base layout and background */
+.pageContainer {
+  min-height: 100vh;
+  background-color: var(--dark-bg);
+  position: relative;
+  overflow: hidden;
+  font-family: "Inter", sans-serif; /* A good alternative to a custom font */
+}
+
+.contentContainer {
+  max-width: 1152px; /* Similar to max-w-4xl from Tailwind */
+  margin: 0 auto;
+  padding: 64px 16px; /* py-16 px-4 */
+  position: relative;
+  z-index: 10;
+}
+
+.mainContent {
+  max-width: 896px; /* max-w-2xl */
+  margin: 0 auto;
+}
+
+/* Background effects */
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px; /* Corresponds to Tailwind's space-x-8,y-8 */
+  opacity: 0.3;
+}
+
+.gradientOverlayTop {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 384px; /* w-96 */
+  height: 384px; /* h-96 */
+  background-color: var(--purple-glow);
+  opacity: 0.1;
+  border-radius: 9999px; /* rounded-full */
+  filter: blur(48px); /* blur-3xl */
+}
+
+.gradientOverlayBottom {
+  position: absolute;
+  bottom: 0;
+  right: 25%;
+  width: 384px; /* w-96 */
+  height: 384px; /* h-96 */
+  background-color: var(--cyan-glow);
+  opacity: 0.1;
+  border-radius: 9999px;
+  filter: blur(48px);
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  bottom: -100px;
+  width: 15px; /* Adjust size as needed */
+  height: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: float linear infinite;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Glassmorphism effect */
+.glass {
+  background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent white */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem; /* rounded-3xl */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.glassDark {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.03
+  ); /* Darker glass effect for icons */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem; /* rounded-2xl */
+}
+
+/* Text and colors */
+.cyanGlowText {
+  color: var(--cyan-glow);
+  text-shadow: 0 0 5px var(--cyan-glow), 0 0 10px var(--cyan-glow);
+}
+
+.purpleGlowText {
+  color: var(--purple-glow);
+  text-shadow: 0 0 5px var(--purple-glow), 0 0 10px var(--purple-glow);
+}
+
+.titleGradient {
+  background-image: linear-gradient(
+    to right,
+    var(--purple-glow),
+    var(--cyan-glow)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(138, 43, 226, 0.5); /* Glow for the purple part */
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5),
+      0 0 20px rgba(138, 43, 226, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8),
+      0 0 30px rgba(138, 43, 226, 0.8);
+  }
+}
+
+@keyframes glowPurpleStrong {
+  0%,
+  100% {
+    box-shadow: 0 0 10px var(--purple-glow), 0 0 20px var(--purple-glow);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--purple-glow), 0 0 30px var(--purple-glow);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: var(--cyan-glow);
+  animation: spin 1s ease-in-out infinite;
+}
+
+/* Component-specific styles */
+.header {
+  text-align: center;
+  margin-bottom: 4rem; /* mb-16 */
+}
+
+.iconContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px; /* w-24 */
+  height: 96px; /* h-24 */
+  border-radius: 1.5rem; /* rounded-3xl */
+  margin-bottom: 2rem; /* mb-8 */
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.slackIcon {
+  width: 48px; /* w-12 */
+  height: 48px; /* h-12 */
+}
+
+.pulseGlow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.hoverScale:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.title {
+  font-size: 3.75rem; /* 6xl */
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1.5rem; /* mb-6 */
+  letter-spacing: -0.05em; /* tracking-tight */
+}
+
+.subtitle {
+  font-size: 1.25rem; /* xl */
+  color: var(--gray-300);
+  max-width: 896px; /* max-w-2xl */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.625; /* leading-relaxed */
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem; /* gap-8 */
+  margin-bottom: 4rem; /* mb-16 */
+}
+
+.featureCard {
+  padding: 2rem; /* p-8 */
+  border-radius: 1rem; /* rounded-2xl */
+  transition: all 0.3s ease-in-out;
+}
+
+.hoverGlow:hover {
+  box-shadow: 0 0 10px var(--cyan-glow), 0 0 20px var(--purple-glow);
+  transition: all 0.3s ease-in-out;
+}
+
+.featureIconBox {
+  width: 56px; /* w-14 */
+  height: 56px; /* h-14 */
+  border-radius: 1rem; /* rounded-2xl */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem; /* mb-6 */
+  transition: all 0.3s ease-in-out;
+}
+
+.featureIcon {
+  width: 28px; /* w-7 */
+  height: 28px; /* h-7 */
+}
+
+.featureTitle {
+  font-size: 1.5rem; /* 2xl */
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.featureText {
+  color: var(--gray-300);
+  line-height: 1.625; /* leading-relaxed */
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 3rem; /* p-12 */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaGradientOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(138, 43, 226, 0.05),
+    rgba(0, 255, 255, 0.05)
+  );
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 10;
+}
+
+.ctaHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.sparkleIcon {
+  width: 32px; /* w-8 */
+  height: 32px; /* h-8 */
+  margin: 0 0.75rem; /* mx-3 */
+}
+
+.ctaTitle {
+  font-size: 2.25rem; /* 4xl */
+  font-weight: 700;
+  color: var(--white);
+}
+
+.ctaSubtitle {
+  color: var(--gray-300);
+  margin-bottom: 2.5rem; /* mb-10 */
+  font-size: 1.125rem; /* lg */
+  line-height: 1.625;
+  max-width: 640px; /* max-w-md */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 2.5rem; /* px-10 py-5 */
+  background-image: linear-gradient(
+    to right,
+    var(--purple-glow),
+    var(--cyan-glow)
+  );
+  color: var(--white);
+  font-weight: 600;
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  font-size: 1.125rem; /* lg */
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(1.05);
+}
+
+.ctaButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+.slackButtonIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.75rem;
+}
+
+.arrowIcon {
+  width: 24px;
+  height: 24px;
+  margin-left: 0.75rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.ctaButton:not(:disabled):hover .arrowIcon {
+  transform: translateX(8px); /* translate-x-2 */
+}
+
+.btnGlow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btnGlow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
+  transition: transform 0.4s ease-in-out;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.btnGlow:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.glowPurpleStrong {
+  animation: glowPurpleStrong 4s ease-in-out infinite;
+}
+
+.ctaFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem; /* mt-8 */
+  font-size: 0.875rem; /* text-sm */
+  color: #9ca3af; /* gray-400 */
+  gap: 1.5rem; /* space-x-6 */
+}
+
+.ctaFooterItem {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 8px; /* w-2 */
+  height: 8px; /* h-2 */
+  border-radius: 9999px; /* rounded-full */
+  margin-right: 0.5rem; /* mr-2 */
+}
+
+.pulseGlow {
+  animation: pulseGlow 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.cyanGlow.dot {
+  background-color: var(--cyan-glow);
+}
+
+.purpleGlow.dot {
+  background-color: var(--purple-glow);
+}
